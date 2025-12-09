@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UXA OFFICIAL - Premium Digital Experiences</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #06D6A0;
+            --accent-color: #f59e0b;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --background-light: #F8FAFC;
+            --white: #FFFFFF;
+            --border-color: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Hero Sections */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Page Sections */
+        .page-section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 250px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Form Styles */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .service-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        /* Page Content */
+        .page-content {
+            min-height: 60vh;
+            padding: 2rem 0;
+        }
+
+        /* Auth Pages */
+        .auth-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .auth-form-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .auth-features {
+            padding: 2rem;
+        }
+
+        .auth-features ul {
+            list-style: none;
+        }
+
+        .auth-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: start;
+        }
+
+        .auth-features i {
+            color: var(--secondary-color);
+            margin-right: 0.75rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .auth-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 200px;
+            }
+        }
+
+        /* Image Placeholders */
+        .image-placeholder {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .image-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Tab System for Single Page */
+        .tab-container {
+            margin: 2rem 0;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .member-image {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">UXA OFFICIAL</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="#login" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="#register" class="nav-link">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Tab Navigation -->
+    <div class="container">
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="home">Home</button>
+                <button class="tab-btn" data-tab="about">About</button>
+                <button class="tab-btn" data-tab="services">Services</button>
+                <button class="tab-btn" data-tab="gallery">Projects</button>
+                <button class="tab-btn" data-tab="contact">Contact</button>
+                <button class="tab-btn" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="register">Register</button>
+            </div>
+
+            <!-- Home Tab -->
+            <div id="home" class="tab-content active">
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Welcome to UXA OFFICIAL</h1>
+                        <p>Creating exceptional digital experiences through innovative design and cutting-edge technology.</p>
+                        <div class="hero-buttons">
+                            <a href="#gallery" class="btn btn-primary">View Projects</a>
+                            <a href="#register" class="btn btn-secondary">Get Started</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="page-section">
+                    <div class="container">
+                        <h2 class="section-header">Why Choose UXA OFFICIAL?</h2>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <i class="fas fa-rocket"></i>
+                                <h3>Innovative Solutions</h3>
+                                <p>Cutting-edge digital solutions tailored to your business needs and goals.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-users"></i>
+                                <h3>Expert Team</h3>
+                                <p>Experienced professionals dedicated to delivering exceptional results.</p>
+                            </div>
+                            <div class="feature-card">
+                                <i class="fas fa-medal"></i>
+                                <h3>Premium Quality</h3>
+                                <p>Top-tier services ensuring the highest standards of excellence.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- About Tab -->
+            <div id="about" class="tab-content">
+                <section class="page-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h1>About UXA OFFICIAL</h1>
+                            <p>Leading the way in digital innovation and user experience design</p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+                            <div>
+                                <h2>Our Story</h2>
+                                <p>UXA OFFICIAL was founded with a vision to revolutionize digital experiences through innovative design and technology. We believe in creating solutions that not only meet but exceed user expectations.</p>
+                                <p>Our team of experts combines creativity with technical excellence to deliver projects that make a real impact in the digital landscape.</p>
+                                
+                                <h2 style="margin-top: 2rem;">Our Mission</h2>
+                                <p>To empower businesses with exceptional digital solutions that drive growth, enhance user engagement, and create lasting value in an ever-evolving digital world.</p>
+                            </div>
+                            <div class="image-placeholder">
+                                <i class="fas fa-building"></i>
+                                <p>UXA OFFICIAL Headquarters</p>
+                            </div>
+                        </div>
+
+                        <div class="team-grid">
+                            <div class="team-member">
+                                <div class="member-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3>Alex Johnson</h3>
+                                <p>CEO & Founder</p>
+                            </div>
+                            <div class="team-member">
+                                <div class="member-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3>Sarah Chen</h3>
+                                <p>Creative Director</p>
+                            </div>
+                            <div class="team-member">
+                                <div class="member-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3>Mike Rodriguez</h3>
+                                <p>Tech Lead</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Services Tab -->
+            <div id="services" class="tab-content">
+                <section class="page-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h1>Our Services</h1>
+                            <p>Comprehensive digital solutions for modern businesses</p>
+                        </div>
+                        
+                        <div class="services-grid">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <h3>Web Development</h3>
+                                <p>Custom websites and web applications built with modern technologies.</p>
+                                <ul>
+                                    <li>Responsive Design</li>
+                                    <li>E-commerce Solutions</li>
+                                    <li>Web Applications</li>
+                                    <li>Performance Optimization</li>
+                                </ul>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h3>App Development</h3>
+                                <p>Native and cross-platform mobile applications for iOS and Android.</p>
+                                <ul>
+                                    <li>iOS & Android Apps</li>
+                                    <li>UI/UX Design</li>
+                                    <li>App Store Optimization</li>
+                                    <li>Maintenance & Support</li>
+                                </ul>
+                            </div>
+
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h3>UI/UX Design</h3>
+                                <p>User-centered design that creates engaging and intuitive experiences.</p>
+                                <ul>
+                                    <li>User Research</li>
+                                    <li>Wireframing & Prototyping</li>
+                                    <li>Visual Design</li>
+                                    <li>Usability Testing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Gallery Tab -->
+            <div id="gallery" class="tab-content">
+                <section class="page-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h1>Our Projects</h1>
+                            <p>Showcasing our latest work and successful collaborations</p>
+                        </div>
+                        
+                        <div class="gallery-grid">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>E-Commerce Platform</h3>
+                                    <p class="category">Web Development</p>
+                                    <p class="description">Modern e-commerce solution with advanced features</p>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Fitness App</h3>
+                                    <p class="category">Mobile Development</p>
+                                    <p class="description">Health and fitness tracking application</p>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Analytics Dashboard</h3>
+                                    <p class="category">Web Application</p>
+                                    <p class="description">Real-time data visualization platform</p>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="project-info">
+                                    <h3>Banking Portal</h3>
+                                    <p class="category">Enterprise Solution</p>
+                                    <p class="description">Secure online banking system</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Contact Tab -->
+            <div id="contact" class="tab-content">
+                <section class="page-section">
+                    <div class="container">
+                        <div class="section-header">
+                            <h1>Contact Us</h1>
+                            <p>Get in touch to discuss your next project</p>
+                        </div>
+                        
+                        <div class="form-container">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Company</label>
+                                    <input type="text" id="company" name="company">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Project Details *</label>
+                                    <textarea id="message" name="message" rows="6" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Login Tab -->
+            <div id="login" class="tab-content">
+                <section class="page-section">
+                    <div class="container">
+                        <div class="auth-container">
+                            <div class="auth-form-container">
+                                <h2>Login to UXA OFFICIAL</h2>
+                                <form class="auth-form">
+                                    <div class="form-group">
+                                        <label for="login-username">Username *</label>
+                                        <input type="text" id="login-username" name="username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="login-password">Password *</label>
+                                        <input type="password" id="login-password" name="password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                                </form>
+                                <div style="text-align: center; margin-top: 1.5rem;">
+                                    <p>Don't have an account? <a href="#register" style="color: var(--primary-color);">Register here</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-features">
+                                <h3>Why Join UXA OFFICIAL?</h3>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Access premium digital resources</li>
+                                    <li><i class="fas fa-check"></i> Collaborate with expert teams</li>
+                                    <li><i class="fas fa-check"></i> Manage your projects efficiently</li>
+                                    <li><i class="fas fa-check"></i> Get priority support</li>
+                                    <li><i class="fas fa-check"></i> Exclusive client portal access</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Register Tab -->
+            <div id="register" class="tab-content">
+                <section class="page-section">
+                    <div class="container">
+                        <div class="auth-container">
+                            <div class="auth-form-container">
+                                <h2>Join UXA OFFICIAL</h2>
+                                <form class="auth-form">
+                                    <div class="form-group">
+                                        <label for="reg-fullname">Full Name *</label>
+                                        <input type="text" id="reg-fullname" name="full_name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg-email">Email Address *</label>
+                                        <input type="email" id="reg-email" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg-company">Company</label>
+                                        <input type="text" id="reg-company" name="company">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg-username">Username *</label>
+                                        <input type="text" id="reg-username" name="username" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reg-password">Password *</label>
+                                        <input type="password" id="reg-password" name="password" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                                </form>
+                                <div style="text-align: center; margin-top: 1.5rem;">
+                                    <p>Already have an account? <a href="#login" style="color: var(--primary-color);">Login here</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="auth-features">
+                                <h3>Client Benefits</h3>
+                                <ul>
+                                    <li><i class="fas fa-star"></i> Dedicated project manager</li>
+                                    <li><i class="fas fa-chart-line"></i> Real-time project tracking</li>
+                                    <li><i class="fas fa-file-alt"></i> Comprehensive project reports</li>
+                                    <li><i class="fas fa-headset"></i> 24/7 priority support</li>
+                                    <li><i class="fas fa-gem"></i> Exclusive feature access</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>UXA OFFICIAL</h3>
+                    <p>Creating exceptional digital experiences through innovative design and cutting-edge technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UXA OFFICIAL. All rights reserved. | Premium Digital Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab System
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Form submission handlers
+            document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you! Your message has been sent successfully. We will contact you soon.');
+                this.reset();
+            });
+            
+            document.querySelector('#login .auth-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Login functionality would be implemented with backend.');
+            });
+            
+            document.querySelector('#register .auth-form')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Registration successful! Welcome to UXA OFFICIAL.');
+            });
+            
+            // Smooth navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetTab = this.getAttribute('href').substring(1);
+                    tabButtons.forEach(btn => {
+                        if (btn.getAttribute('data-tab') === targetTab) {
+                            btn.click();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

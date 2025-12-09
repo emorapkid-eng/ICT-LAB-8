@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Home - ArtGallery Hub{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to ArtGallery Hub</h1>
+        <p>Discover extraordinary artworks from talented artists around the world. Your gateway to creative excellence.</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('gallery') }}" class="btn btn-primary">Explore Gallery</a>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary">Join Our Community</a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2>Why Choose ArtGallery Hub?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-palette"></i>
+                <h3>Diverse Artworks</h3>
+                <p>Explore a wide range of artistic styles and mediums from emerging and established artists.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Artist Community</h3>
+                <p>Connect with fellow artists, share your work, and get inspired by creative minds.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Art Marketplace</h3>
+                <p>Discover and purchase unique artworks that speak to your soul and enhance your space.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Artists Preview -->
+<section class="featured-artists">
+    <div class="container">
+        <h2>Featured Artists</h2>
+        <div class="artists-grid">
+            <div class="artist-card">
+                <div class="artist-image"></div>
+                <h3>Sarah Chen</h3>
+                <p>Contemporary Abstract</p>
+            </div>
+            <div class="artist-card">
+                <div class="artist-image"></div>
+                <h3>Marcus Rodriguez</h3>
+                <p>Urban Landscape</p>
+            </div>
+            <div class="artist-card">
+                <div class="artist-image"></div>
+                <h3>Elena Petrova</h3>
+                <p>Portrait Specialist</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

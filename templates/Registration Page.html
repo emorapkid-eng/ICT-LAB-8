@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Register - ArtGallery Hub{% endblock %}
+
+{% block content %}
+<section class="auth-hero">
+    <div class="container">
+        <h1>Join Our Creative Community</h1>
+        <p>Create your ArtGallery Hub account and start your artistic journey</p>
+    </div>
+</section>
+
+<section class="auth-section">
+    <div class="container">
+        <div class="auth-container">
+            <div class="auth-form-container">
+                <h2>Create Account</h2>
+                <form class="auth-form" method="POST">
+                    <div class="form-group">
+                        <label for="full_name">Full Name *</label>
+                        <input type="text" id="full_name" name="full_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username *</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" id="password" name="password" required>
+                        <small>Minimum 8 characters with letters and numbers</small>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="newsletter" checked>
+                            <span class="checkmark"></span>
+                            Send me updates about new features and artists
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+                <div class="auth-divider">
+                    <span>Already have an account?</span>
+                </div>
+                <a href="{{ url_for('login') }}" class="btn btn-outline btn-full">Sign In</a>
+            </div>
+            
+            <div class="auth-features">
+                <h3>Artist Benefits</h3>
+                <ul>
+                    <li><i class="fas fa-star"></i> Free basic portfolio with 10 artwork uploads</li>
+                    <li><i class="fas fa-chart-line"></i> Track views and engagement analytics</li>
+                    <li><i class="fas fa-shopping-cart"></i> Sell directly to art collectors</li>
+                    <li><i class="fas fa-users"></i> Join exclusive artist communities</li>
+                    <li><i class="fas fa-trophy"></i> Participate in monthly art challenges</li>
+                    <li><i class="fas fa-gem"></i> Get featured in our spotlight section</li>
+                </ul>
+                
+                <div class="testimonial">
+                    <p>"ArtGallery Hub transformed my art career. I've connected with collectors worldwide and doubled my income in just 6 months!"</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Chen</strong>
+                        <span>Contemporary Artist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
